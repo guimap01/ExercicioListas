@@ -34,14 +34,25 @@ namespace listasSeção6
 
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine();
+
+
             Console.Write("Entre com o id do empregado que tera aumento do salario: ");
             int idAumento = int.Parse(Console.ReadLine());
-            Console.Write("Entre com a porcentagem de aumento: ");
-            int porcAumento = int.Parse(Console.ReadLine());
-
             Trabalhador trabAumento = list.Find(x => x.Id == idAumento);
 
-            trabAumento.AumentarSalario(porcAumento);
+
+            if (trabAumento == null)
+            {
+                Console.WriteLine("Este Id não existe");
+            }
+            else
+            {
+                Console.Write("Entre com a porcentagem de aumento: ");
+                Console.WriteLine();
+                int porcAumento = int.Parse(Console.ReadLine());
+                trabAumento.AumentarSalario(porcAumento);
+            }
+
 
             foreach (Trabalhador trab in list)
             {
